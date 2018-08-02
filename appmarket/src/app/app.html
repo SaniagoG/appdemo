@@ -1,0 +1,49 @@
+<ion-menu class="side-menu" (ionOpen)="updateMenu()" id="myMenu" [content]="content">
+  <!--<ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <ion-content >
+    <ion-grid>
+      <ion-row justify-content-center align-items-center>
+        <ion-col col-4>
+         <img class="img-fluid img-circle avatar" src="{url_profile_img}" onError="this.src='assets/img/avatar.png'" >
+         
+        </ion-col> 
+        <ion-col col-12>
+          <p text-center no-padding no-margin>{{name}}</p>
+          <p text-center no-padding no-margin>{{lastname}}</p>
+        </ion-col>
+        <ion-col col-12>
+          <ion-item>
+            <ion-label>{{ lang ? lang[current_lang]?.academic_term : ''}}</ion-label>
+              <ion-select [(ngModel)]="current_period_id" (ionChange)="updateCurrentPeriod()" name="current_period_id">
+                <ion-option *ngFor="let item of periods" value="{{item?.at_id}}" [selected]="item?.at_id == current_period_id">{{item?.name}}</ion-option>
+              </ion-select>
+            </ion-item>
+           </ion-col> 
+      </ion-row>
+      <ion-row justify-content-center align-items-center>
+          
+        </ion-row>
+      
+    </ion-grid>
+    <ion-list>
+      <button ion-button menuClose full text-uppercase color="light" *ngFor="let p of pages" [class.activeHightLight]="checkActive(p)" (click)="openPage(p)">
+        {{ lang? lang[current_lang][p.title] : p.title}}
+      </button> 
+    </ion-list>
+  </ion-content>
+  <ion-footer no-border text-center>
+    <button class="close" ion-button icon-only round color=danger (click)="logout()">
+      <ion-icon name="md-exit"></ion-icon>
+    </button>
+    <h6 text-uppercase no-margin padding-bottom>{{lang? lang[current_lang]?.logout : ''}}</h6>
+    </ion-footer>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

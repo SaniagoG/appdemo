@@ -1,0 +1,31 @@
+
+<ion-header no-border>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon class="menu-boton">
+        <span class="bar animated slideInLeft"></span>
+      </ion-icon>
+    </button>
+    <ion-buttons end>
+      <button ion-button >
+        <ion-icon class="filtro-boton">
+          <span class="bar"></span>
+        </ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar no-padding>
+    <ion-grid no-padding class="animated fadeInDown a1">
+      <ion-row>
+        <ion-col col-3>
+          <p text-center>{{ lang? lang[current_lang].date : ''}}<p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-infinite-scroll (ionInfinite)="getMoreAssignments($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

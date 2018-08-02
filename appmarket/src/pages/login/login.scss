@@ -1,0 +1,32 @@
+page-login {
+    .input-hidden {
+        position: absolute;
+        display: none;
+    }
+
+    input[type=radio]:checked + label>img {
+        border: 2px solid #fff;
+        box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.274);
+        top: -5px;
+        filter: grayscale(0);
+        
+    }
+
+/* Stuff after this is only to make things more pretty */
+    input[type=radio] + label>img {
+        border: 4px solid rgb(255, 255, 255);
+        box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.274);
+        width: 60px;
+        height: 40px;
+        transition: 500ms all;
+        top: 0px;
+        position: relative;
+        filter: grayscale(1);
+        margin-top: 0;
+    }
+
+    input[type=radio]:checked + label>img {
+        box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.474);  
+    }
+
+}

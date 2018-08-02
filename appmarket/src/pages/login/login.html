@@ -1,0 +1,57 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content>
+    <ion-grid>
+        <ion-row justify-content-center align-items-center>
+          <ion-col text-center col-10 col-sm-7 col-md-5 col-lg-3>
+            <img class="animated fadeInDown a1" src="assets/img/logo.png" alt="">
+            <form class="animated fadeInUp a15" (submit)="login()">
+              <p class="error" text-center *ngIf="msg">{{lang? lang[current_lang]?.tip_login__invalid_school_user_or_password : ''}}</p>
+              <ion-item class="colegio">
+                <ion-input type="text" readlony="true" (ionFocus)="showLoginModal()" [placeholder]="lang ? lang[current_lang]?.school_or_organization : ''" [(ngModel)]="school_name" name="school_name"></ion-input>
+              </ion-item>
+              <ion-item class="nombre">
+                <ion-input type="text" [placeholder]="lang? lang[current_lang]?.user_login : ''" [(ngModel)]="user" name="usuario"></ion-input>
+              </ion-item>
+              <ion-item class="pass">
+                <ion-input type="password" [placeholder]="lang? lang[current_lang]?.password : ''" [(ngModel)]="password" name="password"></ion-input>
+              </ion-item>
+              <p text-center>{{ lang ? lang[current_lang]?.tip_login__did_you_forget_password : ''}} <br><a href="#" onclick="window.open('https://plataforma.ciudadeducativa.com/actions.php?action=see_recover_password', '_system', 'location=yes'); return false;" >{{lang? lang[current_lang]?.tip_login__click_here : ''}}</a></p>
+              <button ion-button round block type="submit">
+                {{lang ? lang[current_lang]?.enter : ''}}
+              </button>
+            </form>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid no-padding class="animated fadeInUp a2">
+      <ion-row justify-content-center>
+        <ion-col col-12>
+          <p text-center>{{lang? lang[current_lang]?.tip_login__what_is_your_language : ''}}</p>
+        </ion-col>
+        <ion-col col-3>
+          <input type="radio" id="spanish" class="input-hidden" (click)="changeLang('es_co')" [checked]="current_lang=='es_co'">
+          <label for="spanish">
+            <img src="assets/img/spanish.png" alt="spanish" />
+          </label>
+        </ion-col>
+        <ion-col col-3>
+          <input type="radio" id="english" class="input-hidden" (click)="changeLang('en_us')" [checked]="current_lang=='en_us'">
+          <label for="english">
+            <img src="assets/img/english.png" alt="english" />
+          </label>
+        </ion-col>
+        <ion-col col-3>
+          <input type="radio" id="portugues" class="input-hidden" (click)="changeLang('pt_br')" [checked]="current_lang=='pt_br'">
+          <label for="portugues">
+            <img src="assets/img/portugues.png" alt="portugues" />
+          </label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content> 
